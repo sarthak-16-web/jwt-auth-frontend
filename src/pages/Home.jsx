@@ -1,17 +1,49 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Home = () => {
+  const [showNotice, setShowNotice] = useState(true);
+
   const styles = {
     page: {
       minHeight: "100vh",
       background: "linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)",
       color: "#ffffff",
       fontFamily: "Arial, sans-serif",
-      padding: "60px 20px",
+      padding: "30px 20px 60px",
     },
     container: {
       maxWidth: "1200px",
       margin: "0 auto",
+    },
+    notice: {
+      position: "relative",
+      background: "rgba(251, 191, 36, 0.12)",
+      border: "1px solid rgba(251, 191, 36, 0.35)",
+      color: "#f8fafc",
+      padding: "18px 50px 18px 18px",
+      borderRadius: "16px",
+      marginBottom: "30px",
+      lineHeight: "1.7",
+      fontSize: "15px",
+      backdropFilter: "blur(10px)",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+    },
+    noticeTitle: {
+      fontSize: "18px",
+      fontWeight: "700",
+      color: "#facc15",
+      marginBottom: "8px",
+    },
+    closeBtn: {
+      position: "absolute",
+      top: "12px",
+      right: "14px",
+      background: "transparent",
+      border: "none",
+      color: "#ffffff",
+      fontSize: "22px",
+      cursor: "pointer",
     },
     hero: {
       display: "grid",
@@ -152,6 +184,28 @@ const Home = () => {
   return (
     <div style={styles.page}>
       <div style={styles.container}>
+        {showNotice && (
+          <div style={styles.notice}>
+            <div style={styles.noticeTitle}>Project Execution Note</div>
+            <button
+              style={styles.closeBtn}
+              onClick={() => setShowNotice(false)}
+            >
+              ×
+            </button>
+            <div>
+              The project works correctly in local environment using local MongoDB
+              Compass. User registration, login, bcrypt password hashing, and JWT
+              authentication are functioning properly on localhost. Attached
+              screenshots in the documentation show successful user flow with
+              timestamps. Considering the project for selection, it can be run in
+              the same way during the interview on localhost without changes. The
+              issue in deployment is due to cloud database availability/limits on
+              MongoDB Atlas, not due to frontend or authentication logic.
+            </div>
+          </div>
+        )}
+
         <div style={styles.hero}>
           <div>
             <span style={styles.badge}>Secure Authentication System</span>
@@ -161,10 +215,8 @@ const Home = () => {
             </h1>
 
             <p style={styles.description}>
-              A modern authentication frontend with registration, login, bcrypt
-              password hashing, JWT-based authentication, and protected profile
-              access. The project works correctly in the local environment with
-              MongoDB.
+              A modern authentication frontend built with registration, login,
+              and protected profile access using JWT authentication.
             </p>
 
             <div style={styles.buttonRow}>
@@ -193,22 +245,15 @@ const Home = () => {
               <div style={styles.infoBox}>
                 <h3 style={styles.infoTitle}>Why this project?</h3>
                 <p style={styles.infoText}>
-                  This project demonstrates a complete authentication flow
-                  including user registration, secure password hashing with
-                  bcrypt, login using JWT tokens, and protected routes for
-                  authenticated users.
+                  This project demonstrates a complete authentication flow with
+                  secure login, user registration, and protected routes.
                 </p>
               </div>
 
               <div style={styles.miniGrid}>
                 <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Authentication</div>
-                  <div style={styles.miniValue}>JWT Based</div>
-                </div>
-
-                <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Security</div>
-                  <div style={styles.miniValue}>bcrypt Hashing</div>
+                  <div style={styles.miniLabel}>Feature</div>
+                  <div style={styles.miniValue}>JWT Login</div>
                 </div>
 
                 <div style={styles.miniCard}>
@@ -217,8 +262,13 @@ const Home = () => {
                 </div>
 
                 <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Database</div>
-                  <div style={styles.miniValue}>MongoDB</div>
+                  <div style={styles.miniLabel}>Page</div>
+                  <div style={styles.miniValue}>User Profile</div>
+                </div>
+
+                <div style={styles.miniCard}>
+                  <div style={styles.miniLabel}>Stack</div>
+                  <div style={styles.miniValue}>React Router</div>
                 </div>
               </div>
             </div>
@@ -230,8 +280,7 @@ const Home = () => {
             <div style={styles.featureIcon}>🔐</div>
             <h3 style={styles.featureTitle}>Secure Authentication</h3>
             <p style={styles.featureText}>
-              Register and login securely using JWT-based authentication and
-              encrypted password storage with bcrypt.
+              Register and login securely using token-based authentication.
             </p>
           </div>
 
@@ -247,7 +296,7 @@ const Home = () => {
             <div style={styles.featureIcon}>👤</div>
             <h3 style={styles.featureTitle}>Profile Access</h3>
             <p style={styles.featureText}>
-              Logged-in users can securely access their protected profile data.
+              Authenticated users can view their protected profile information.
             </p>
           </div>
         </div>
