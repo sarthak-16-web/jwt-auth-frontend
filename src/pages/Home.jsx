@@ -161,8 +161,10 @@ const Home = () => {
             </h1>
 
             <p style={styles.description}>
-              A modern authentication frontend built with registration, login,
-              and protected profile access using JWT authentication.
+              A modern authentication frontend with registration, login, bcrypt
+              password hashing, JWT-based authentication, and protected profile
+              access. The project works correctly in the local environment with
+              MongoDB.
             </p>
 
             <div style={styles.buttonRow}>
@@ -191,15 +193,22 @@ const Home = () => {
               <div style={styles.infoBox}>
                 <h3 style={styles.infoTitle}>Why this project?</h3>
                 <p style={styles.infoText}>
-                  This project demonstrates a complete authentication flow with
-                  secure login, user registration, and protected routes.
+                  This project demonstrates a complete authentication flow
+                  including user registration, secure password hashing with
+                  bcrypt, login using JWT tokens, and protected routes for
+                  authenticated users.
                 </p>
               </div>
 
               <div style={styles.miniGrid}>
                 <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Feature</div>
-                  <div style={styles.miniValue}>JWT Login</div>
+                  <div style={styles.miniLabel}>Authentication</div>
+                  <div style={styles.miniValue}>JWT Based</div>
+                </div>
+
+                <div style={styles.miniCard}>
+                  <div style={styles.miniLabel}>Security</div>
+                  <div style={styles.miniValue}>bcrypt Hashing</div>
                 </div>
 
                 <div style={styles.miniCard}>
@@ -208,13 +217,8 @@ const Home = () => {
                 </div>
 
                 <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Page</div>
-                  <div style={styles.miniValue}>User Profile</div>
-                </div>
-
-                <div style={styles.miniCard}>
-                  <div style={styles.miniLabel}>Stack</div>
-                  <div style={styles.miniValue}>React Router</div>
+                  <div style={styles.miniLabel}>Database</div>
+                  <div style={styles.miniValue}>MongoDB</div>
                 </div>
               </div>
             </div>
@@ -226,7 +230,8 @@ const Home = () => {
             <div style={styles.featureIcon}>🔐</div>
             <h3 style={styles.featureTitle}>Secure Authentication</h3>
             <p style={styles.featureText}>
-              Register and login securely using token-based authentication.
+              Register and login securely using JWT-based authentication and
+              encrypted password storage with bcrypt.
             </p>
           </div>
 
@@ -242,7 +247,7 @@ const Home = () => {
             <div style={styles.featureIcon}>👤</div>
             <h3 style={styles.featureTitle}>Profile Access</h3>
             <p style={styles.featureText}>
-              Authenticated users can view their protected profile information.
+              Logged-in users can securely access their protected profile data.
             </p>
           </div>
         </div>
